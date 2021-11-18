@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Article list{% endblock %}
+
+{% block content %}
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>So'nggi maqolalar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Single Best Receipe Area -->
+                {% for article in article_list %}
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-best-receipe-area mb-30">
+                            <img src="/media/{{ article.image }}" alt=""
+                                 style="margin: 10px; border: 10px solid green; border-radius: 20px">
+                            <div class="receipe-content">
+                                <a href="{% url 'article_detail' article.pk %}">
+                                    <h5>{{ article.title }}</h5>
+                                </a>
+                                <div class="ratings">
+                                    <p>{{ article.summery }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">1</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ page_obj.number }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                    {% endif %}
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Kerakli videolar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">1</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ page_obj.number }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                    {% endif %}
+                </span>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

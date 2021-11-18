@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Videolar{% endblock %}
+
+{% block content %}
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Kerakli videolar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Single Best Receipe Area -->
+                {% for video in video_list %}
+
+                    <div class="col-12 col-sm-6 col-lg-4"
+                         style="margin: 10px; border: 5px solid green; border-radius: 20px">
+                        <div class="single-best-receipe-area mb-30">
+                            <video width="320" height="240" controls>
+                                <source src="/media/{{ video.video }}" type="video/mp4">
+                                <source src="/media/{{ video.video }}" type="video/ogg">
+                            </video>
+                            <div class="receipe-content">
+                                <h5>{{ video.title }}</h5>
+                                <div class="ratings">
+                                    <p>{{ video.summery }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+            </div>
+            <div class="pagination">
+                <span class="step-links">
+                    {% if page_obj.has_previous %}
+                        <a href="?page=1">1</a>
+                        <a href="?page={{ page_obj.previous_page_number }}">&laquo;</a>
+                    {% endif %}
+
+                    <span class="current">
+                        {{ page_obj.number }}
+                    </span>
+
+                    {% if page_obj.has_next %}
+                        <a href="?page={{ page_obj.next_page_number }}">&raquo;</a>
+                        <a href="?page={{ page_obj.paginator.num_pages }}">{{ page_obj.paginator.num_pages }}</a>
+                    {% endif %}
+                </span>
+            </div>
+
+        </div>
+    </section>
+{% endblock %}

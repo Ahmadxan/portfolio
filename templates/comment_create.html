@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Comment create {% endblock %}
+
+{% block content %}
+
+    <h1>New Comment</h1>
+
+    <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+        {{ form.media }}
+        {{ form|crispy }}
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+
+{% endblock %}

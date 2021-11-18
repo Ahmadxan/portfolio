@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Article detail{% endblock %}
+
+{% block content %}
+
+    <div class="container">
+
+        <div class="row g-0 bg-light position-relative">
+            {% if object.image %}
+                <div class="col-md-6 mb-md-0 p-md-4">
+                    <video width="320" height="240" controls>
+                        <source src="/media/{{ object.video }}" type="video/mp4">
+                        <source src="/media/{{ object.video }}" type="video/ogg">
+                    </video>
+                </div>
+            {% endif %}
+            <div class="col-md-6 p-4 ps-md-0">
+                <h5 class="mt-0">{{ object.title }}</h5>
+                <p>{{ object.body | safe }}</p>
+                <p>muallif {{ object.author }}|{{ object.posted_at }}</p>
+            </div>
+            <p><a href="{% url 'video_list' %}">Bosh sahifa</a></p>
+        </div>
+        <div class="card">
+            <div class="card-header">Izohlar</div>
+            {% for comment in article.comments.all %}
+                <div class="card-body">
+                    <blockquote class="blockquote mb-0">
+                        <p>{{ comment }}</p>
+                        <footer class="blockquote footer">{{ comment.author }}</footer>
+                    </blockquote>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

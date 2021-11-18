@@ -1,0 +1,80 @@
+{% extends 'admin/base.html' %}
+{% load static %}
+
+{% block content %}
+    <!-- MAIN CONTENT-->
+    <div class="main-content">
+        <div class="section__content section__content--p30">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="overview-wrap">
+                            <h2 class="title-1">overview</h2>
+                            <a href="{% url 'customer-create' %}">
+                                <button class="au-btn au-btn-icon au-btn--blue">
+                                    <i class="zmdi zmdi-plus"></i>add item
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <h2 class="title-1 m-b-25">Earnings By Items</h2>
+                        <div class="table-responsive table--no-card m-b-40">
+                            <table class="table table-borderless table-striped table-earning">
+                                <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Full name</th>
+                                    <th>Job</th>
+                                    <th>Message</th>
+                                    <th>Image</th>
+                                    <th class="text-right">Tahrir</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                {% for category in customers %}
+                                    <tr>
+                                        <td>{{ category.id }}</td>
+                                        <td>{{ category.full_name }}</td>
+                                        <td>{{ category.job }}</td>
+                                        <td>{{ category.message }}</td>
+                                        <td><img src="/media/{{ category.image }}" alt=""></td>
+                                        <td class="text-right">
+                                            <div class="table-data-feature">
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title=""
+                                                        data-original-title="Edit">
+                                                    <a href="{% url 'customer-update' pk=category.id %}"><i
+                                                            class="zmdi zmdi-edit" style="color: green"></i></a>
+                                                </button>
+                                                <button class="item" data-toggle="tooltip" data-placement="top" title=""
+                                                        data-original-title="Delete">
+                                                    <a href="{% url 'customer-delete' pk=category.id %}"><i
+                                                            class="zmdi zmdi-delete" style="color: red"></i></a>
+                                                </button>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="copyright">
+                            <p>Copyright © 2018 Colorlib. All rights reserved. Template by <a
+                                    href="https://colorlib.com">Colorlib</a>.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- END MAIN CONTENT-->
+{% endblock %}
+

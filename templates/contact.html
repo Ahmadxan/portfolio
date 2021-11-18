@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} Kontaktlar {% endblock %}
+
+{% block content %}
+
+    <!-- ##### Contact Information Area Start ##### -->
+    <div class="contact-information-area section-padding-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="logo mb-80">
+                        <img src="{% static 'img/core-img/logo2.png' %}" alt="">
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Contact Text -->
+                <div class="col-12 col-lg-5">
+                    <div class="contact-text">
+                        <p>Assalomu alaykum! Bu yerda biz bilan bog'lanish uchun barcha ma'lumotlar yetarli.
+                        </p>
+                        <p>Agar sizga Portfolio, Reklama va barcha yo'nalishlar uchun web sayt, Resumelar tayyorlash kerak bo'lsa murojaat qilishingiz mumkin!</p>
+                        <p>Sizni qiziqtirgan savollar va takliflar bo'lsa murojaat qilishngiz mumkin. Biz esa qo'ldan kelgancha
+                        sizni xursand qilishga harakat qilamiz va xursand bo'lamiz.</p>
+                    </div>
+                </div>
+
+                <div class="col-12 col-lg-3">
+                    <!-- Single Contact Information -->
+                    <div class="single-contact-information mb-30">
+                        <h6>Manzil:</h6>
+                        <p>Yunusobod tumani</p>
+                    </div>
+                    <!-- Single Contact Information -->
+                    <div class="single-contact-information mb-30">
+                        <h6>Telefon:</h6>
+                        <p>+998 90 320 20 36 <br>+998 99 715 50 35</p>
+                    </div>
+                    <!-- Single Contact Information -->
+                    <div class="single-contact-information mb-30">
+                        <h6>Email:</h6>
+                        <p>xushvaqtovahmad98@gmail.com</p>
+                    </div>
+                </div>
+
+                <!-- Newsletter Area -->
+                <div class="col-12 col-lg-4">
+                    <div class="newsletter-form bg-img bg-overlay" style="background-image: url({% static 'img/bg-img/contact.jpg' %}); height: 250px;">
+                        </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Contact Information Area End ##### -->
+
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area section-padding-0-80">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Bog'lanish</h3>
+                        <center><p>Taklif va mulohazalaringizni kutib qolamiz!</p></center>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="#" method="post">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-lg-6">
+                                    <input style="background: white" type="text" class="form-control" name="name" id="name" placeholder="Ism">
+                                </div>
+                                <div class="col-12 col-lg-6">
+                                    <input style="background: white" type="email" class="form-control" name="email" id="email"  placeholder="Email manzil">
+                                </div>
+                                <div class="col-12">
+                                    <input style="background: white" type="text" class="form-control" name="subject" id="subject" placeholder="Murojaat mavzusi">
+                                </div>
+                                <div class="col-12">
+                                    <textarea style="background: white" name="message" class="form-control" id="message" cols="30" rows="10"
+                                              placeholder="Xabar"></textarea>
+                                </div>
+                                <div class="col-12 text-center">
+                                    <button class="btn btn-success mt-30" type="submit">Yuborish</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ##### Contact Form Area End ##### -->
+
+{% endblock %}

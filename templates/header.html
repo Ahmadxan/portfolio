@@ -1,0 +1,177 @@
+{% load static %}
+<!-- Preloader -->
+<div id="preloader">
+    <i class="circle-preloader"></i>
+    <img src="{% static 'img/core-img/logo.png' %}" alt="">
+</div>
+
+<!-- Search Wrapper -->
+<div class="search-wrapper">
+    <!-- Close Btn -->
+    <div class="close-btn"><i class="fa fa-times" aria-hidden="true"></i></div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="{% url 'search' %}" method="get">
+                    <input type="search" name="s" placeholder="Type any keywords...">
+                    <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+
+    <!-- Top Header Area -->
+    <div class="top-header-area" style="background: whitesmoke">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center justify-content-between">
+                <!-- Breaking News -->
+                <div class="col-12 col-sm-6">
+                    <div class="breaking-news">
+                        <div id="breakingNewsTicker" class="ticker">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Assalomu alaykum!</a></li>
+                                <li><a href="{% url 'home' %}">Saytimizga xush kelibsiz!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Top Social Info -->
+                <div class="col-12 col-sm-6">
+                    <div class="top-social-info text-right">
+                        <a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-dribbble" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-behance" aria-hidden="true"></i></a>
+                        <a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navbar Area -->
+    <div class="delicious-main-menu">
+        <div class="classy-nav-container breakpoint-off">
+            <div class="container">
+                <!-- Menu -->
+                <nav class="classy-navbar justify-content-between" id="deliciousNav">
+
+                    <!-- Logo -->
+                    <a class="nav-brand" href="{% url 'home' %}"><img src="{% static 'img/core-img/logo2.png' %}" alt=""></a>
+
+                    <!-- Navbar Toggler -->
+                    <div class="classy-navbar-toggler">
+                        <span class="navbarToggler"><span></span><span></span><span></span></span>
+                    </div>
+
+                    <!-- Menu -->
+                    <div class="classy-menu">
+
+                        <!-- close btn -->
+                        <div class="classycloseIcon">
+                            <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+                        </div>
+
+                        <!-- Nav Start -->
+                        <div class="classynav">
+                            <ul>
+
+                                {% url 'home' as home_url %}
+                                {% url 'portfolio' as about_page %}
+                                {% url 'article_list' as products_page %}
+                                {% url 'video_list' as video_list %}
+                                {% url 'contact' as contact_page %}
+                                <li class="{% if request.get_full_path == home_url %} active {% endif %}"><a
+                                        href="{% url 'home' %}">Home</a></li>
+                                <li class="{% if request.get_full_path == about_page %} active {% endif %}"><a
+                                        href="{% url 'portfolio' %}">Portfolio</a></li>
+                                <li class="{% if request.get_full_path == products_page %} active {% endif %}"><a
+                                        href="{% url 'article_list' %}">Maqolalar</a></li>
+                                <li class="{% if request.get_full_path == video_list %} active {% endif %}"><a
+                                        href="{% url 'video_list' %}">Videolar</a></li>
+                                <li class="{% if request.get_full_path == contact_page %} active {% endif %}"><a
+                                        href="{% url 'contact' %}">Kontaktlar</a></li>
+
+                            </ul>
+
+                            <!-- Newsletter Form -->
+                            <div class="search-btn">
+                                <i class="fa fa-search" aria-hidden="true"></i>
+                            </div>
+
+                        </div>
+                        <!-- Nav End -->
+                    </div>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- ##### Header Area End ##### -->
+
+<!-- ##### Hero Area Start ##### -->
+<section class="hero-area">
+    <div class="hero-slides owl-carousel">
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/bg-1.jpg' %}); height: 600px">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
+                            <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
+                            <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem
+                                eget dui tristique, ac posuere arcu varius.</p>
+                            <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See
+                                Receipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/bg-6.jpg' %}); height: 600px">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
+                            <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
+                            <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem
+                                eget dui tristique, ac posuere arcu varius.</p>
+                            <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See
+                                Receipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Single Hero Slide -->
+        <div class="single-hero-slide bg-img" style="background-image: url({% static 'img/bg-img/bg-7.jpg' %}); height: 600px">
+            <div class="container h-100">
+                <div class="row h-100 align-items-center">
+                    <div class="col-12 col-md-9 col-lg-7 col-xl-6">
+                        <div class="hero-slides-content" data-animation="fadeInUp" data-delay="100ms">
+                            <h2 data-animation="fadeInUp" data-delay="300ms">Delicios Homemade Burger</h2>
+                            <p data-animation="fadeInUp" data-delay="700ms">Lorem ipsum dolor sit amet, consectetur
+                                adipiscing elit. Cras tristique nisl vitae luctus sollicitudin. Fusce consectetur sem
+                                eget dui tristique, ac posuere arcu varius.</p>
+                            <a href="#" class="btn delicious-btn" data-animation="fadeInUp" data-delay="1000ms">See
+                                Receipe</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- ##### Hero Area End ##### -->

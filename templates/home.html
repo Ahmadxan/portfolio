@@ -1,0 +1,98 @@
+{% extends 'base.html' %}
+
+{% block title %} Home Page {% endblock %}
+{% load static %}
+
+{% block content %}
+<br/>
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>So'nggi maqolalar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Single Best Receipe Area -->
+                {% for article in article_list %}
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-best-receipe-area mb-30">
+                            <img src="/media/{{ article.image }}" alt="">
+                            <div class="receipe-content">
+                                <a href="{% url 'article_detail' article.pk %}">
+                                    <h5>{{ article.title }}</h5>
+                                </a>
+                                <div class="ratings">
+                                    <p>{{ article.summery }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-area bg-img bg-overlay" style="background-image: url({% static 'img/bg-img/bg-4.jpg' %});">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12">
+                    <!-- Cta Content -->
+                    <div class="cta-content text-center">
+                        <h2>Web dasturlash</h2>
+                        <p>Web dasturlash ikki qismga bo'linadi. Bular Frontend va Backend. Frontend sayt
+                        yoki ilovaning tashqi ko'rinishi va dizayni hisoblanadi. Backend qismi esa hisob kitob amallari,
+                        baza qismi va ularni so'rovga asosan malumotni foydalanuvchiga yetkazib beruvchi qismi hisoblanadi.</p>
+                        <a href="#" class="btn delicious-btn">Batafsil</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="best-receipe-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section-heading">
+                        <h3>Foydali videolar</h3>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+
+                <!-- Single Best Receipe Area -->
+                {% for video in video_list %}
+
+                    <div class="col-12 col-sm-6 col-lg-4">
+                        <div class="single-best-receipe-area mb-30">
+                            <div class="col-md-6 mb-md-0 p-md-4">
+                                <video width="320" height="240" controls>
+                                    <source src="/media/{{ video.video }}" type="video/mp4">
+                                    <source src="/media/{{ video.video }}" type="video/ogg">
+                                </video>
+                            </div>
+                            <div class="receipe-content">
+                                    <h5>{{ video.title }}</h5>
+                                <div class="ratings">
+                                    <p>{{ video.summery }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+{% endblock %}

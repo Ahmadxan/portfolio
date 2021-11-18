@@ -1,0 +1,20 @@
+{% extends 'dashboard/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} Video Edit {% endblock %}
+
+{% block content %}
+
+    <div class="container" style="margin-top: 100px">
+
+        <h1>Tahrirlash</h1>
+
+        <form action="" method="post" enctype="multipart/form-data">{% csrf_token %}
+            {{ form.media }}
+            {{ form|crispy }}
+            <button type="submit" class="btn btn-success">Save</button>
+        </form>
+
+    </div>
+
+{% endblock %}
